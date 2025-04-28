@@ -45,6 +45,7 @@ test.describe.serial('feature preview', () => {
 
 	test('should show "Message" and "Navigation" feature sections', async ({ page }) => {
 		await page.goto('/account/feature-preview');
+		await page.locator('.main-content').waitFor();
 
 		await expect(page.getByRole('button', { name: 'Message' })).toBeVisible();
 		await expect(page.getByRole('button', { name: 'Navigation' })).toBeVisible();
